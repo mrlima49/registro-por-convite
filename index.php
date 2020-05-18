@@ -1,8 +1,8 @@
 <?php
 session_start();
 if(isset($_SESSION['user'])){
+    $email = $_SESSION['user'];
     $codigo = $_SESSION['codigo'];
-    echo $codigo;
 
 }else{
     header("location: login.php");
@@ -17,7 +17,8 @@ if(isset($_SESSION['user'])){
 </head>
 <body>
     <h1>Área interna do sistema</h1>
-    <p>http://localhost/registro_convite/cadastrar.php?code=<?= $codigo; ?></p>
+    <p><strong>Email: <?= $email; ?></strong></p>
+    <p><strong>Link de envio: </strong> http://localhost/registro_convite/cadastrar.php?code=<?= $codigo; ?></p>
     <a href="logout.php">Sair</a>
     
 </body>
